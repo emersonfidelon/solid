@@ -16,7 +16,7 @@ class CarrinhoCompra {
         return $this->items;
     }
 
-    public function adicionarItem(Item $item):bool 
+    public function setItem(Item $item):bool 
     {
         if($item->isValid()) {
             array_push($this->items, $item);
@@ -26,7 +26,7 @@ class CarrinhoCompra {
         return false;
     }
 
-    public function validar():bool 
+    public function isValid():bool 
     {
         return count($this->items) > 0;
     }

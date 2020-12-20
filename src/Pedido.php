@@ -34,7 +34,7 @@ class Pedido
 
     public function confirmar():bool
     {
-        if($this->carrinhoCompra->validar()) {
+        if($this->carrinhoCompra->isValid()) {
             $this->setStatus('confirmado');
             return true;
         }
