@@ -27,6 +27,11 @@ class Pedido
         $this->status = $status;
     }
 
+    public function getValorPedido():float 
+    {
+        return $this->valorPedido;
+    }
+
     public function getCarrinhoCompra():CarrinhoCompra
     {
         return $this->carrinhoCompra;
