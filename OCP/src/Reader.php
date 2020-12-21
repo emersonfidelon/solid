@@ -31,7 +31,13 @@ class Reader {
     public function readFile():array {
         $path = $this->getFolder()."/".$this->getFile();
         $file = new File();
-        $file->readFileCSV($path);
+        $extension = explode('.', $this->getFile())[1];
+        
+        if ($extension === 'csv') {
+            $file->readFileCSV($path);
+        } else if($extension === 'txt') {
+            $file->readFileTXT($path);
+        }
 
         return $file->getData();
     }

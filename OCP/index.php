@@ -6,5 +6,11 @@ use App\Reader;
 
 $reader = new Reader();
 $reader->setFolder(__DIR__."/files");
+
+$reader->setFile('dados.txt');
+$array_txt = $reader->readFile();
+
 $reader->setFile('dados.csv');
-var_dump($reader->readFile());
+$array_csv = $reader->readFile();
+
+var_dump(array_merge($array_txt, $array_csv));

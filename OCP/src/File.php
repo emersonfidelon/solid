@@ -29,5 +29,25 @@ class File
         while (($row = fgetcsv($handle, 10000, ';')) !== false) {
             $this->setData($row);
         }
+        
+        fclose($handle);
+    }
+
+    public function readFileTXT(string $path):void 
+    {
+        $handle = fopen($path, 'r');
+
+        while (!feof($handle)) {
+            $row = fgets($handle);
+            $data = [
+                substr($row, 11, 30),
+                substr($row, 0, 11),
+                substr($row, 41, 50)
+            ];
+
+            $this->setData($data);
+        }
+
+        fclose($handle);
     }
 }
